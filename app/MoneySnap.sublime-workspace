@@ -270,6 +270,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"notifications",
 			"terms",
 			"forgotPassword",
 			"$scope.forgotPassword",
@@ -396,8 +397,7 @@
 			"item.",
 			"item.size",
 			"item.multiplier",
-			"item.SAC",
-			"item.SACGroup"
+			"item.SAC"
 		],
 		"highlight": true,
 		"in_selection": false,

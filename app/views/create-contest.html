@@ -39,6 +39,7 @@
 	</label>
 
 	<!-- TODO: Only if Admin -->
+<span ng-if="currentUser.isAdmin">
 	<label ng-if="currentUser.isAdmin">
 		<b>Featured?</b>
 		<input type="checkbox" ng-model="contest.featured">
@@ -51,6 +52,7 @@
 	<select ng-model="contest.contestType" ng-init="contest.contestType = contestTypes[0].name">
 		<option ng-repeat="type in contestTypes" ng-value="type.name">{{type.name}}</option>
 	</select>
+</span>
 
 	<br>
 

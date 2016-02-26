@@ -20,7 +20,7 @@
       </a>
       <a class="button secondary expanded" href="#invite/{{contest.$id}}"><i class="fa fa-envelope-o"></i> Invite</a>
     </div>
-    <a class="button tiny secondary expanded" href="#edit/{{contest.$id}}" ng-if="contest.userID == currentUser.userID || currentUser.email == 'jordashtalon@gmail.com'">Edit</a>
+    <a class="button tiny secondary expanded" href="#edit/{{contest.$id}}" ng-if="contest.userID == currentUser.userID || currentUser.isAdmin">Edit</a>
   </div>
 
     <div class="panel" ng-if="contest.description">

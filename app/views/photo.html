@@ -6,7 +6,7 @@
     </div>
     <div class="description">
       {{entry.caption}}
-      <a href="#edit-entry/{{entry.$id}}" ng-if="entry.userID == firebaseUser.uid" class="smallLink rightLink">edit photo</a>
+      <a href="#edit-entry/{{entry.$id}}" ng-if="entry.userID == firebaseUser.uid || currentUser.isAdmin" class="smallLink rightLink">edit photo</a>
     </div>
   </div>
 

@@ -831,10 +831,10 @@ app.controller('main', function($scope, $firebaseArray, $firebaseObject, $fireba
 
 	$scope.contestTypes = [
 		{
-			name: 'Specific Judge'
+			name: 'Contest Members Only'
 		},
 		{
-			name: 'Contest Members Only'
+			name: 'Specific Judge'
 		}
 	];
 });
