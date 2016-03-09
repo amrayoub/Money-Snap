@@ -558,6 +558,23 @@ app.controller('main', function($scope, $firebaseArray, $firebaseObject, $fireba
 			contestID: entry.contestID,
 			action:'Liked'
 		});
+
+		var pushVar = {
+					    "request": {
+					        "application": "94745-939A7",
+					        "auth": "pCNg0PNNeJjYfEkKB1DrcZeBTe1Ii1H4RDuFDrAOz4GkVruQvqJWT9ulhmmIivPx3nPFFACOEijnYK1q7MBJ",
+					        "notifications": [{
+					            "send_date": "now", // YYYY-MM-DD HH:mm  OR 'now'
+					            "ignore_user_timezone": true, // or false
+					            "content": "Hello world!",
+					            "devices":["FFFFFFFFD5D73728E8584D5AB425DB8311A3B36B"]
+					        }]
+					    },
+					};
+
+		$http.post('https://cp.pushwoosh.com/json/1.3/createMessage', pushVar).then(function() {
+			// Success
+		});
 	}
 	$scope.invite = function(userID, contestID) {
 		$scope.notificationsRef.push({
