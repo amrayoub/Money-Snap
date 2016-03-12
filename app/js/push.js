@@ -1,7 +1,7 @@
 angular.module('service.push', [])
 .factory('$cordovaPushwoosh', ['$q', '$window', function ($q, $window) {
     var GOOGLE_PROJECT_ID = "197499054373";
-    var PUSHWOOSH_APPID = "94745-939A7";
+    var PUSHWOOSH_APPID = "C17C4-F6654";
     
     return {
       initPushwoosh: function () {

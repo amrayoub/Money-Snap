@@ -561,8 +561,8 @@ app.controller('main', function($scope, $firebaseArray, $firebaseObject, $fireba
 
 		var pushVar = {
 					    "request": {
-					        "application": "94745-939A7",
-					        "auth": "pCNg0PNNeJjYfEkKB1DrcZeBTe1Ii1H4RDuFDrAOz4GkVruQvqJWT9ulhmmIivPx3nPFFACOEijnYK1q7MBJ",
+					        "application": "C17C4-F6654",
+					        "auth": "UuqGVLm1hm0dbbHf1abW4VP54fXSdN39rwO5an6ZI7MrkFSoK2q0Bq6UiToTWAKKBJ20v9ZeekQGdsfwdis5",
 					        "notifications": [{
 					            "send_date": "now", // YYYY-MM-DD HH:mm  OR 'now'
 					            "ignore_user_timezone": true, // or false
