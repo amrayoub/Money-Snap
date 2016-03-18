@@ -125,6 +125,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Jordan/app/app/directives/profileentry.html",
 		"/C/Users/Jordan/AppData/Local/Temp/~flashfxp/6D140BC6_edit.tmp/app.css",
 		"/C/Users/Jordan/AppData/Local/Temp/~flashfxp/A7C58BD3.tmp/charge.php",
 		"/C/Users/Jordan/AppData/Local/Temp/~flashfxp/AB897B4C_edit.tmp/app.js",
@@ -251,8 +252,7 @@
 		"/D/Cloud/Work/BuildsOn.com/InterfaceHTML/style.css",
 		"/D/Cloud/Work/BuildsOn.com/InterfaceHTML/views/edit-course.html",
 		"/D/Cloud/Work/BuildsOn.com/InterfaceHTML/views/pushCourse.html",
-		"/C/Users/Jordan/AppData/Local/Temp/~flashfxp/2DD2A730_edit.tmp/app.js",
-		"/D/Cloud/Work/BuildsOn.com/InterfaceHTML/views/push-course.html"
+		"/C/Users/Jordan/AppData/Local/Temp/~flashfxp/2DD2A730_edit.tmp/app.js"
 	],
 	"find":
 	{
@@ -270,6 +270,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dropzone",
+			"scope",
 			"notifications",
 			"terms",
 			"forgotPassword",
@@ -395,9 +397,7 @@
 			"$scope.lap.",
 			"text",
 			"item.",
-			"item.size",
-			"item.multiplier",
-			"item.SAC"
+			"item.size"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -457,12 +457,28 @@
 		"selected_items":
 		[
 			[
-				"submit",
-				"/D/Cloud/Work/MoneySnap/Firebase Version/views/submit.html"
+				"index",
+				"app/index.html"
+			],
+			[
+				"create",
+				"app/views/create-contest.html"
+			],
+			[
+				"contest",
+				"app/directives/contestitem.html"
 			],
 			[
 				"profile",
-				"/D/Cloud/Work/MoneySnap/Firebase Version/views/profile.html"
+				"app/directives/profileentry.html"
+			],
+			[
+				"app.js",
+				"app/js/app.js"
+			],
+			[
+				"submit",
+				"/D/Cloud/Work/MoneySnap/Firebase Version/views/submit.html"
 			],
 			[
 				"photo",
@@ -545,10 +561,6 @@
 				"views/coursesTeaching.html"
 			],
 			[
-				"create",
-				"views/createCourse.html"
-			],
-			[
 				"text",
 				"views/edit-text.html"
 			],
@@ -583,10 +595,6 @@
 			[
 				"push",
 				"views/pushCourse.html"
-			],
-			[
-				"index",
-				"index.html"
 			],
 			[
 				"nested",
