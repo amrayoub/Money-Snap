@@ -1,7 +1,12 @@
 <div class="panel">
-	<b class="panelTitle">Contests <span class="refreshIcon"><a ng-click="refresh();"><i class="fa fa-refresh"></i></a></span></b>
+	
+	<!-- <b class="panelTitle">Contests <span class="refreshIcon"><a ng-click="refresh();"><i class="fa fa-refresh"></i></a></span></b> -->
 
-	<div class="filterLinks">
+	<div class="filterMenu">
+		<a ng-click="currentUser.showFilters = true; currentUser.$save()"><i class="fa fa-bars"></i> {{currentUser.contestFilterLabel}}</a>
+	</div>
+
+	<div class="filterLinks" ng-show="currentUser.showFilters">
 		<a ng-click="setContestFilter({}, 'All')"  ng-class="{'activeFilter':currentUser.contestFilterLabel == 'All'}">All</a>
 		<a ng-click="setContestFilter({featured:true}, 'Featured');" ng-class="{'activeFilter':currentUser.contestFilterLabel == 'Featured'}">Featured</a>
 		<a ng-click="setContestFilter({userID:currentUser.userID}, 'Participating');" ng-class="{'activeFilter':currentUser.contestFilterLabel == 'Participating'}">Participating</a>
@@ -10,8 +15,6 @@
 		<a ng-click="setContestFilter({submissionsOver:true, votingOver: true}, 'Finished');" ng-class="{'activeFilter':currentUser.contestFilterLabel == 'Finished'}">Finished</a>
 		<a ng-click="setContestFilter({userID:currentUser.userID}, 'My Contests');" ng-class="{'activeFilter':currentUser.contestFilterLabel == 'My Contests'}">My Contests</a>
 	</div>
-
-	<b class="filterTitle">{{currentUser.contestFilterLabel}}</b>
 	<div class="contestReports" ng-repeat="contest in contests | orderBy:'-' | filter:currentUser.contestFilter" ng-if="currentUser.contestFilterLabel != 'Participating' && contest.title">
 		<contestreport ng-if="contest.title && contest.imageID"></contestreport>
 	</div>

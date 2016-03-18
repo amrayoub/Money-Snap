@@ -158,6 +158,15 @@ $stateProvider
     scope: true,
     templateUrl: "views/change-password.html"
   })
+  .state('view-photo', {
+    abstract: true,
+    template: '<ui-view></ui-view>'
+  })
+  .state('view-photo.imageID', {
+    url: "/view-photo/:imageID",
+    scope: true,
+    templateUrl: "views/view-photo.html"
+  })
   ;
 
 });

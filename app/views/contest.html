@@ -2,25 +2,29 @@
 
   <div class="panel">
     <div class="singleContestImage">
-      <img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_fill,w_900,h_400/{{contest.imageID || 'no-image-featured-image_rdviix'}}.jpg">
+      <img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_fill,w_900,h_900/{{contest.imageID || 'no-image-featured-image_rdviix'}}.jpg">
       <div class="singleContestDetails">
-        {{contest.title}}
-      </div>
-    </div>
 
-    <div class="singleContestButtons" ng-if="!contest.votingOver">
-      <div ng-if="submissions < contest.entriesPerPerson && !contest.submissionsOver">
-        <a href="#submit/{{contest.$id}}" class="button success large expanded">Submit a Photo</a>
+        <div class="singleContestButtons" ng-if="!contest.votingOver">
+          {{contest.title}}
+          <div ng-if="contest.entranceFee" class="text-center entranceFee">
+            <b>Entrance Fee:</b> {{contest.entranceFee | currency}}</small>
+          </div>
+          <div ng-if="submissions < contest.entriesPerPerson && !contest.submissionsOver">
+            <a href="#submit/{{contest.$id}}" class="button success whiteTextButton large expanded">Submit a Photo</a>
+          </div>
+          <div ng-if="contest.expired">
+            <p align="center">This contest is over!</p>
+          </div>
+          <a ng-click="smoothScroll('#allEntries')" class="button expanded large" ng-if="(contest.submissionsOver || contest.contestType != 'Contest Members Only') && !contest.votingOver && totalSubmissions > 0 && votesLeft > 0">
+            Vote
+          </a>
+          <a class="button small secondary expanded whiteTextButton" href="#invite/{{contest.$id}}"><i class="fa fa-envelope-o"></i> Invite</a>
+        </div>
+
       </div>
-      <div ng-if="contest.expired">
-        <p align="center">This contest is over!</p>
-      </div>
-      <a ng-click="smoothScroll('#allEntries')" class="button expanded large" ng-if="(contest.submissionsOver || contest.contestType != 'Contest Members Only') && !contest.votingOver && totalSubmissions > 0 && votesLeft > 0">
-        Vote
-      </a>
-      <a class="button secondary expanded" href="#invite/{{contest.$id}}"><i class="fa fa-envelope-o"></i> Invite</a>
     </div>
-    <a class="button tiny secondary expanded" href="#edit/{{contest.$id}}" ng-if="contest.userID == currentUser.userID || currentUser.isAdmin">Edit</a>
+    <a href="#edit/{{contest.$id}}" ng-if="contest.userID == currentUser.userID || currentUser.isAdmin"><i class="fa fa-pencil-square-o"></i> Edit</a>
   </div>
 
     <div class="panel" ng-if="contest.description">
@@ -29,14 +33,14 @@
     </div>
 
     <div class="panel phase" ng-show="submissionPhase">
-      <b class="phaseTitle">Accepting New Submissions For</b>
+      <b class="phaseTitle">Accepting Submissions</b>
       <div id="submissionDeadlineCounter" class="countdownTimer"></div>
     </div>
 
     <div class="panel phase votingPhase" ng-show="votingPhase">
-      <b class="phaseTitle">Vote for your favorite entry!<br><small>Before the time runs out!</small></b>
+      <b class="phaseTitle">Vote</b>
       <div id="votingDeadlineCounter" class="countdownTimer"></div>
-      <div class="text-center"><small>No new submissions are being accepted</small></div>
+      <div class="text-center"><small>No new submissions accepted</small></div>
 
       <div ng-if="!userVotedInContest && totalSubmissions > 0" class="warningMessage text-center">
           <b>WARNING</b><br> You have not voted yet! Your submission will not be valid until you have voted on at least 1 entry which is not your own.
@@ -131,9 +135,8 @@
 
   <div class="panel">
     <div ng-if="contest.contestType != 'Contest Members Only'" class="prizes">
-      <b class="contestSectionHead"><i class="fa fa-trophy"></i> Prizes</b>
-      <div class="prize" ng-class="{'mainPrize':$first}" ng-repeat="prize in prizes | filter:{contestID:contest.$id} track by $index">
-        <b>{{prize.amount | currency}} <small>{{prize.label}}</small></b>
+      <div class="prize" ng-repeat="prize in prizes | filter:{contestID:contest.$id} track by $index">
+        <b><small>{{prize.label}}</small> {{prize.amount | currency}}</b>
       </div>
     </div>
 
@@ -162,11 +165,11 @@
   </div>
 
 <div ng-if="contest.contestType == 'Specific Judge'">
-  <div class="panel prizes">
-    <b class="contestSectionHead">About The Judge</b>
+  <div class="panel">
     <div class="judgeInfo">
       <div class="judgePhoto">
         <img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_thumb,g_custom:face,h_120,w_120/{{contest.judgeImageID}}.jpg" class="judgeImagePreview">
+        <b class="contestSectionHead text-center" style="position: relative; top: -15px;">Judge</b>
       </div>
       <div class="judgeDetails">
         <b class="judgeName">{{contest.judgeName}}</b>
@@ -187,25 +190,30 @@
   </ul>
 </div>
 
-  <div class="panel prizes">
-    <b class="contestSectionHead">Rules</b>
-    <div class="mainPrize prize">
-      <b>{{contest.entriesPerPerson || 1}} <small>entries per person</small></b>
-    </div>
-    <div class="prize">
-      <b>{{contest.votesPerPerson}} <small>votes per person</small></b>
-    </div>
-    <div class="prize">
-      <b>{{contest.submissionDeadline}} <small>Submission Deadline</small></b>
-    </div>
-    <div class="prize">
-      <b>{{contest.votingDeadline}} <small>Voting Deadline</small></b>
+  <div class="panel rules">
+    <div class="profileStats">
+      <div class="profileStat">
+        <b>{{contest.entriesPerPerson || 1}}</b> <small>entries / person</small>
+      </div>
+      <div class="profileStat">
+        <b>{{contest.votesPerPerson}}</b> <small>votes / person</small>
+      </div>
+      <div class="profileStat">
+        <b>{{contest.submissionDeadline}}</b> <small>Submission Deadline</small>
+      </div>
+      <div class="profileStat">
+        <b>{{contest.votingDeadline}}</b> <small>Voting Deadline</small>
+      </div>
     </div>
   </div>
 
   <div class="panel entries">
-    <b class="contestSectionHead"><i class="fa fa-trophy"></i> My Submissions <small style="float: right">{{submissions}} / {{contest.entriesPerPerson}}</small></b>
-      <div class="contestEntries">
+    <b class="contestSectionHead" ng-click="currentUser.showMySubmissions = !currentUser.showMySubmissions; currentUser.$save();">
+      <i class="fa fa-trophy"></i> My Submissions <small style="float: right">{{submissions}} / {{contest.entriesPerPerson}}</small>
+      <span ng-show="currentUser.showMySubmissions"><i class="fa fa-chevron-down"></i></span>
+      <span ng-show="!currentUser.showMySubmissions"><i class="fa fa-chevron-right"></i></span>
+    </b>
+      <div class="contestEntries" ng-show="currentUser.showMySubmissions">
         <profileentry class="entry" ng-repeat="entry in entries | orderBy:'-numVotes' | filter:{userID:firebaseUser.uid, contestID:contest.$id} track by $index">
         </profileentry>
       </div>

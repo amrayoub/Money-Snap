@@ -313,6 +313,10 @@ app.controller('main', function($scope, $firebaseArray, $firebaseObject, $fireba
 		    	email: $scope.newUser.email,
 		    	userID: userData.uid
 		    });
+		    firebase.child('Follows').push({
+		    	follower: userData.uid,
+		    	following: userData.uid
+		    });
 		    $scope.user = $scope.newUser;
 		    $scope.loginUser();
 		  }

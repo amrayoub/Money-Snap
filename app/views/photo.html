@@ -2,21 +2,25 @@
 
   <div class="panel">
     <div class="singleContestImage">
-      <img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_scale,w_1000/{{entry.imageID || 'no-image-featured-image_rdviix'}}.jpg">
+      <!-- <a href="#view-photo/{{entry.imageID}}"> -->
+        <img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_fill,h_1000/{{entry.imageID || 'no-image-featured-image_rdviix'}}.jpg">
+      <!-- </a> -->
     </div>
-    <div class="description">
+    <a href="#edit-entry/{{entry.$id}}" ng-if="entry.userID == firebaseUser.uid || currentUser.isAdmin" class="smallLink rightLink">edit photo</a>
+    <div class="description" ng-show="entry.caption">
       {{entry.caption}}
-      <a href="#edit-entry/{{entry.$id}}" ng-if="entry.userID == firebaseUser.uid || currentUser.isAdmin" class="smallLink rightLink">edit photo</a>
     </div>
   </div>
 
     <div class="panel">
-      <a class="likeButton" ng-click="like(entry)" ng-if="!userLikes"><i class="fa fa-thumbs-o-up"></i> Like</a>
-      <a class="likeButton liked" ng-click="unlike(entry)" ng-if="userLikes"><i class="fa fa-thumbs-o-up"></i> Liked</a>
+      <div class="text-center">
+        <a class="likeButton" ng-click="like(entry)" ng-if="!userLikes"><i class="fa fa-thumbs-o-up"></i> Like</a>
+        <a class="likeButton liked" ng-click="unlike(entry)" ng-if="userLikes"><i class="fa fa-thumbs-o-up"></i> Liked</a>
+      </div>
 
       <div class="photoStats">
         <div class="numLikes clickable" ng-click="go('likes.entryID', {entryID:entry.$id})"><b><i class="fa fa-thumbs-o-up"></i> {{entry.numLikes || 0}}</b> <small>likes</small></div>
-        <div class="numVotes clickable" ng-click="go('votes.entryID', {entryID:entry.$id})"><b><i class="fa fa-heart"></i> {{entry.numVotes || 0}}</b> <small>votes</small></div>
+        <div class="numVotes clickable" ng-click="go('votes.entryID', {entryID:entry.$id})"><b><img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_scale,w_18/v1458266414/ceaser_hp21su.png"> {{entry.numVotes || 0}}</b> <small>votes</small></div>
         <div class="rank" ng-show="entry.rank && entry.rank <= totalEntries"><b><i class="fa fa-line-chart"></i> #{{entry.rank}}</b> <small>/ {{totalEntries || 1}}</small></div>
       </div>
     </div>
@@ -60,11 +64,12 @@
   </span>
 
   <div class="panel competingIn">
-    <b>CONTEST</b>
-    <b class="competingInContest">{{contest.title}}</b>
     <div ng-if="firebaseUser.uid != entry.userID">
       <div class="text-center" ng-if="(contest.submissionsOver || contest.contestType != 'Contest Members Only') && !contest.votingOver && !userVote  && totalSubmissions > 0 && votesLeft > 0">
-        <a class="button success large bigBold" ng-click="vote(entry)">VOTE <small>For This</small></a>
+        <a class="button success large thinLong" ng-click="vote(entry)">
+          VOTE
+          <img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_scale,w_30/v1458266414/ceaser_hp21su.png">
+        </a>
         <div class="text-center">You have {{votesLeft || 0}} <small>/ {{contest.votesPerPerson}}</small> vote(s) remaining in this contest</div>
       </div>
       <div class="text-center userVoted" ng-if="userVote"><i class="fa fa-check"></i> You voted for this entry <small><a ng-click="unvote(entry)" ng-if="!contest.votingOver">Remove Vote</a></small></div>
@@ -72,5 +77,5 @@
     <div ng-if="firebaseUser.uid == entry.userID">
       Thank you for your entry!
     </div>
-    <a href="#contest/{{entry.contestID}}" class="button large">See All Entries</a>
+    <!-- <a href="#contest/{{entry.contestID}}">See All Entries</a> -->
   </div>

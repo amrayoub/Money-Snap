@@ -3,13 +3,13 @@
 
   <div class="profileTop">
     <div class="profilePhoto">
-      <img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_scale,h_118,w_118/{{user.imageID || 'noProfile_njhxg2.jpg'}}">
+      <img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_fill,h_118,w_118/{{user.imageID || 'noProfile_njhxg2.jpg'}}" class="profileImageTrigger clickable">
       <div ng-if="user.userID == currentUser.userID" class="dropzoneClickHelper text-center">
-        <a class="button profileDropzoneButton tiny" profileimage>Change</a>
+        <!-- <a class="button tiny">Change</a> -->
         <div id="preview-template" style="display: none;"></div>
       </div>
 
-      <div class="dropzone profileImageDropzone" profileimage>
+      <div class="dropzone profileImageDropzone profileDropzoneButton" profileimage>
 
       </div>
     </div>
@@ -39,7 +39,7 @@
 
 </div>
 
-<div class="panel">
+<div class="panel" ng-show="currentUser.userID != user.userID">
   <div class="followCTA" ng-if="!following">
     <a class="button expanded secondary" ng-click="follow()">Follow</a>
   </div>

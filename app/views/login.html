@@ -60,8 +60,8 @@
 
           <div class="warning label" ng-show="loginError">{{loginError}}</div>
 
-  				<span ng-hide="forgotPass"><input type="submit" class="button large success" ng-click="loginUser()" value="Login"></input></span>
-          <span ng-show="forgotPass"><input type="submit" class="button large success" ng-click="forgotPassword()" value="Reset Password"></input><br><a ng-click="forgotPass=false">Cancel</a></span>
+  				<span ng-hide="forgotPass"><input type="submit" class="button buttonMedium success" ng-click="loginUser()" value="Login"></input></span>
+          <span ng-show="forgotPass"><input type="submit" class="button buttonMedium success" ng-click="forgotPassword()" value="Reset Password"></input><br><a ng-click="forgotPass=false">Cancel</a></span>
           <div ng-show="passwordMessage" class="warning label">{{passwordMessage}}</div>
   			</form>
   		</div>

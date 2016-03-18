@@ -1,0 +1,1 @@
+<img src="http://res.cloudinary.com/dsgmrzsui/image/upload/c_fill,h_1000/{{entry.imageID || 'no-image-featured-image_rdviix'}}.jpg">

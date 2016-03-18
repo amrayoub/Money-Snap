@@ -5,15 +5,58 @@ body {
 	background: rgba(0,0,0,0.1);
 	padding: 54px 0 0 0;
 }
+.profileImageDropzone {
+	display: none;
+}
+.profilePhoto {
+	position: relative;
+}
+b {
+	font-weight: 400;
+}
+.button {
+	background: transparent;
+	border: 1px solid #2199e8;
+	border-radius: 12px;
+	color: #000;
+	text-shadow: none !important;
+}
+body .profilePhoto .dz-started {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.8);
+	border: 1px dashed rgba(0,0,0,0.9);
+}
+.thinLong {
+	padding: 10px 100px !important;
+	align-items: center;
+	display: flex;
+	text-align: center !important;
+	display: inline-block !important;
+	line-height: 20px;
+	font-size: 15px;
+}
+.entranceFee {
+	font-size: 12px;
+	line-height: 14px;
+}
+.whiteTextButton {
+	color: #fff !important;
+}
 .panel {
 	background: #fff;
 	width: 1000px;
-	max-width: 98%;
-	margin: 0 auto 10px auto;
-	padding: 10px;
+	max-width: 100%;
+	margin: 0 auto 0 auto;
+	padding: 0;
 	border-radius: 1px;
 	border: 1px solid rgba(0,0,0,0.1);
-	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	position: relative;
+	top: -18px;
 }
 stripe form:nt-child(1) {
 	display: none;
@@ -30,7 +73,7 @@ stripe form:nt-child(1) {
 .filterLinks {
 	display: block;
 	background: rgba(0,0,0,0.1);
-	margin: 10px -10px;
+	margin: 0 -10px;
 }
 .filterTitle {
 	font-size: 25px;
@@ -40,13 +83,27 @@ stripe form:nt-child(1) {
 	display: block;
 }
 .filterLinks a {
-	display: inline-block;
+	display: block;
 	padding: 5px;
 	margin: 5px;
 	font-size: 12px;
 	line-height: 14px;
 	color: rgba(0,0,20,0.5);
 	text-transform: uppercase;
+}
+.filterMenu {
+	display: block;
+	background: rgba(0,0,0,0.5);
+	padding: 5px;
+}
+.filterMenu a {
+	padding: 5px;
+	display: block;
+	color: #fff;
+	font-size: 20px;
+	line-height: 25px;
+	text-transform: uppercase;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 .prizeWinnerProfile {
 	display: flex;
@@ -125,7 +182,6 @@ stripe form:nt-child(1) {
 	display: flex;
 	font-size: 30px;
 	line-height: 34px;
-	font-weight: 900;
 	align-items: center;
 }
 .contestReports {
@@ -133,18 +189,15 @@ stripe form:nt-child(1) {
 }
 contestreport {
 	display: block;
-	margin: 5px 0;
-	padding: 5px 0;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 .contestReport {
 	display: flex;
 	align-items: center;
+	margin: 0 0 1px 0;
 }
 .contestReportJudge {
 	font-size: 12px;
 	line-height: 14px;
-	color: rgba(0,0,0,0.4);
 }
 .panelTitle {
 	display: block;
@@ -163,12 +216,27 @@ contestreport {
 	line-height: 14px;
 }
 .contestReportTitle {
-	font-weight: bold;
+}
+.contestReportImage {
+	position: relative;
+}
+.contestReportImage .contestImage {
+	width: 100%;
+}
+.contestReportDetails {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	color: #fff;
+	background: rgba(0,0,0,0.4);
+}
+.contestReportDetails a{
+	color: #fff;
 }
 .contestReportAward {
 	font-size: 12px;
 	line-height: 14px;
-	color: rgba(0,0,0,0.5);
 }
 .winners {
 	margin: -10px;
@@ -244,25 +312,41 @@ contestreport {
 	align-items: center;
 	font-size: 16px;
 }
+.notificationWrapper {
+	position: relative;
+}
 .feedUserSubmissionName {
 	margin: 5px;
 }
 .notificationAlert {
-	background: #CC8B00;
-	padding: 3px 10px;
+	background: rgba(255, 0, 0, 1);
+	padding: 1px 2px;
 	color: #fff;
 	text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 	border-radius: 100px; 
 	position: absolute;
 	left: 50%;
 	top: 5px;
+	font-size: 9px !important;
+	line-height: 12px !important;
+}
+.entryClick {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 5px 0;
 }
 .warningMessage {
 	background: rgba(0,0,0,0.1);
 	border: 1px solid rgba(0,0,0,0.2);
 	padding: 10px;
-	font-size: 20px;
-	line-height: 28px;
+	font-size: 14px;
+	line-height: 16px;
+}
+.warningMessage b {
+	color: rgba(255,0,0,1);
 }
 .phaseTitle {
 	font-size: 20px;
@@ -284,7 +368,6 @@ contestreport {
 	text-align: center;
 	font-size: 22px;
 	line-height: 24px;
-	font-weight: 900;
 }
 .subHeader {
 	text-align: center;
@@ -360,12 +443,11 @@ contestitem {
 }
 .userPreviewName {
 	flex: 1;
-	font-weight: bold;
 	padding: 10px;
 }
 .likeButton {
-	font-size: 16px;
-	line-height: 18px;
+	font-size: 12px;
+	line-height: 15px;
 	font-weight: 600;
 	color: rgba(0,0,0,0.8);
 }
@@ -377,9 +459,9 @@ contestitem {
 	display: flex;
 }
 .userVoted {
-	font-size: 25px;
+	font-size: 15px;
 	line-height: 26px;
-	padding: 20px;
+	padding: 5px;
 	background: rgba(0,0,0,0.1);
 }
 body a.liked {
@@ -406,7 +488,6 @@ body b.prizeCounterLabel {
 label b {
 	font-size: 18px;
 	line-height: 22px;
-	font-weight: 900;
 	text-transform: uppercase;
 }
 label {
@@ -461,10 +542,10 @@ textarea {
 }
 .contentWrapper {
 	background: rgba(0,0,0,0.1);
-	min-height: 100vh;
+	min-height: 90vh;
 	width: 100%;
 	transition: all 0.3s;
-	padding: 10px 0 200px 0;
+	padding: 10px 0 0 0;
 }
 /* Sidepane CSS */
 body {
@@ -524,7 +605,6 @@ body {
 .sideMenuHeader {
 	color: #fff;
 	text-transform: uppercase;
-	font-weight: 900;
 	text-align: center;
 	padding: 30px 0;
 	display: block;
@@ -543,7 +623,6 @@ body {
 	color: #fff;
 	text-transform: uppercase;
 	text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-	font-weight: 900;
 }
 .sideMenuActive {
 	display: block;
@@ -585,10 +664,30 @@ body {
 	text-align: center;
 	background: #8CB3D1;
 	color: #fff;
-	font-weight: 900;
 	padding: 10px;
 	align-items: center;
 	margin: 15px;
+}
+.button.success {
+  background-color: transparent;
+  border: 1px solid green;
+  border-radius: 12px;
+  color: #000;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 10px 20px;
+  text-shadow: none;
+}
+.button.warning {
+	background-color: transparent;
+	border: 1px solid #ffae00;
+	color: #000;
+	border-radius: 12px;
+	text-shadow: none;
+}
+.buttonMedium {
+	font-size: 15px;
+	line-height: 15px;
 }
 .contestWonReportDetails {
 	flex: 1;
@@ -610,7 +709,6 @@ body {
 }
 .contestPreviewTitle {
 	font-size: 20px;
-	font-weight: 900;
 	text-transform: uppercase;
 }
 .contestPreviewDetails small {
@@ -859,10 +957,9 @@ body {
 .footerMenu a {
 	text-align: center;
 	display: block;
-	padding: 5px 0;
+	padding: 0;
 }
 .footerMenu a.active {
-	font-weight: 900;
 }
 .footerMenu small {
 	font-size: 10px;
@@ -875,12 +972,12 @@ body {
 	background:rgba(0,0,0,0.6);
 }
 .footerMenu img {
-	height: 40px;
+	height: 15px;
 	width: auto;
 }
 .footerMenu i {
-	height: 40px;
-	font-size: 28px;
+	height: 15px;
+	font-size: 14px;
 	line-height: 40px;
 }
 .footerMenu a {
@@ -918,7 +1015,6 @@ body {
 	text-transform: uppercase;
 }
 .bigBold {
-	font-weight: 900;
 	font-size: 35px !important;
 	padding: 10px 15px !important;
 	width: 80%;
@@ -937,10 +1033,9 @@ body {
 .photoStats {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 .description {
-	padding: 15px;
-	background:rgba(0,0,0,0.1);
 	margin: 5px 0;
 }
 .photoStats small {
@@ -978,10 +1073,16 @@ body .smallLink {
 }
 .singleContestImage {
 	position: relative;
-	margin: 10px 0 0 0;
 }
 .singleContestImage img {
 	width: 100%;
+}
+.button.secondary {
+	background: rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.3);
+	border-radius: 9px;
+	color: #000;
+	padding: 5px;
 }
 .justPaid {
 	background: rgba(0, 80, 0, 0.4) none repeat scroll 0 0;
@@ -991,11 +1092,10 @@ body .smallLink {
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 	padding: 15px;
 	color: #fff;
-	font-weight: bold;
 }
 .singleContestDetails {
 	position: absolute;
-	background: rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0.3);
 	width: 100%;
 	bottom: 0;
 	left:0;
@@ -1004,8 +1104,7 @@ body .smallLink {
 	text-align: center;
 	font-size: 25px;
 	text-transform: uppercase;
-	padding: 20px 0;
-	font-weight: 900;
+	padding: 15px;
 }
 .button {
 	text-transform: uppercase;
@@ -1013,9 +1112,6 @@ body .smallLink {
 	margin: 5px 0;
 }
 .singleContestButtons {
-	background: rgba(0,0,0,0.05);
-	padding: 20px;
-	margin: 10px 0;
 }
 .contestSection {
 	margin: 0 0 15px 0;
@@ -1025,13 +1121,26 @@ body .smallLink {
 	background: rgba(0,0,0,0.05);
 }
 .contestSectionHead {
-	font-size: 20px;
-	line-height: 22px;
+	font-size: 15px;
+	line-height: 18px;
 	display: block;
 	text-transform: uppercase;
 }
+.rules .profileStat {
+	padding: 10px;
+}
+.rules {
+	font-size: 14px;
+	line-height: 14px;
+}
+.rules .profileStat b {
+	font-size: 15px;
+	line-height: 16px;
+}
+.prizes {
+	display: flex;
+}
 .prize {
-	background: rgba(0,0,0,0.1);
 	margin: 5px;
 	padding: 5px;
 }
@@ -1042,6 +1151,8 @@ body .smallLink {
 .judgeInfo {
 	display: flex;
 	align-items: center;
+	font-size: 12px;
+	line-height: 14px;
 }
 .judgePhoto img{
 	width: 120px;
@@ -1136,14 +1247,16 @@ body .read {
 .notificationImage {
 	width: 40px;
 }
+.searchIcon {
+	font-size: 18px !important;
+}
 .followCTA a {
 	display: block;
 	width: 100%;
-	background: #5790BD;
-	padding: 20px;
+	background: transparent;
+	padding: 5px;
 	text-align: center;
-	color: #fff;
-	font-weight: 900;
+	color: #000;
 	font-size: 18px;
 	line-height: 22px;
 	margin: 5px 0;
@@ -1180,7 +1293,6 @@ body .userLink {
 .followCTA .button {
 	font-size: 20px;
 	line-height: 25px;
-	font-weight: 900;
 	margin: 5px 0;
 }
 .userLinkName {
@@ -1192,13 +1304,17 @@ body .userLink {
 profileentry {
 	width: 50%;
 	box-sizing: border-box;
-	padding: 5px;
+	padding: 0;
 }
 .voteGroup {
 	position: relative;
 	padding: 5px;
 	margin: 0;
 	width: 33%;
+}
+.profileEntryVote {
+	font-size: 11px;
+	line-height: 13px;
 }
 .bottomPanel {
 	padding-bottom: 40px;
@@ -1219,7 +1335,6 @@ profileentry {
 	border: 1px solid rgba(0,0,0,0.3);
 	border-bottom: none;
 	text-transform: uppercase;
-	font-weight: 900;
 }
 .panelTab:hover {
 	color: #000;
@@ -1275,6 +1390,7 @@ profileentry img:hover {
 	font-size: 24px;
 	line-height: 32px;
 	color: #000;
+	font-weight: 300;
 }
 .moneyWon b {
 	color: #85B200;
@@ -1303,7 +1419,6 @@ body .prizeInput b.prizeCounter {
 	border: 3px dashed rgba(0,0,0,0.1);
 	max-width: 100%;
 	white-space: nowrap;
-	font-weight: 900;
 	text-transform: uppercase;
 	font-size: 30px;
 	transition: all 0.3s;
@@ -1362,7 +1477,7 @@ body .profileDropzone .dz-preview {
 		max-width: 150px;
 	}
 	profileentry {
-		width: 100%;
+		width: 50%;
 	}
 	.voteGroup {
 		width: 50%;
@@ -1388,6 +1503,6 @@ body .profileDropzone .dz-preview {
 }
 @media (max-width: 600px) {
 	.entry {
-		width: 100%;
+		width: 50%;
 	}
 }

@@ -101,6 +101,10 @@ app.directive('profileimage', function() {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
 
+			$(document).on('click', '.profileImageTrigger', function(event) {
+				$('.profileImageDropzone').trigger('click');
+			})
+
 			Dropzone.autoDiscover = false;
 			var myDropzone = new Dropzone('.profileDropzoneButton', {
 				url: 'https://api.cloudinary.com/v1_1/dsgmrzsui/image/upload',
@@ -119,6 +123,7 @@ app.directive('profileimage', function() {
 				scope.user.imageID = response.public_id;
 				scope.saveUserImage();
 				scope.$apply();
+				myDropzone.removeFile(file);
 			});
 			
 		}  // end jQuery
