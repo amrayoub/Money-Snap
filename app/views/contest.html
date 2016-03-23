@@ -134,15 +134,15 @@
   </div>
 
   <div class="panel">
-    <div ng-if="contest.contestType != 'Contest Members Only'" class="prizes">
+    <div ng-if="contest.contestType != 'Contest Members Only'" class="prizes text-center">
       <div class="prize" ng-repeat="prize in prizes | filter:{contestID:contest.$id} track by $index">
         <b><small>{{prize.label}}</small> {{prize.amount | currency}}</b>
       </div>
     </div>
 
-    <div ng-if="contest.contestType == 'Contest Members Only'" class="prizes">
-      <b class="contestSectionHead">Pot Size</b><br>
-      <div class="profileStat moneyWon" style="text-align: left;">
+    <div ng-if="contest.contestType == 'Contest Members Only'" class="text-center">
+      <b class="contestSectionHead">Pot Size</b>
+      <div class="profileStat moneyWon">
         <b>{{contest.potSize * 0.90 || 0 | currency}}</b>
         <small>current pot size</small>
       </div>
@@ -180,14 +180,9 @@
   </div>
 </div>
 
-<div ng-if="contest.contestType == 'Contest Members Only'" class="panel">
+<div ng-if="contest.contestType == 'Contest Members Only'" class="panel smallText">
   <b class="contestSectionHead">Group Vote</b>
   <p>In Group Vote mode the more people who join the contest the more you can win!</p>
-  <b>NOTES</b>
-  <ul>
-    <li>For your submissions to be valid you must vote on at least on entry that is not your own</li>
-    <li>Entrance Fee: <b>{{contest.entranceFee | currency}}</b></li>
-  </ul>
 </div>
 
   <div class="panel rules">

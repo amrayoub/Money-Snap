@@ -949,7 +949,7 @@ body {
 	width: 100%;
 	box-shadow: 0 -1px 3px rgba(0,0,0,0.2);
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 	justify-content: center;
 	z-index: 999;
 	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(238,238,238,1) 100%);
@@ -962,9 +962,10 @@ body {
 .footerMenu a.active {
 }
 .footerMenu small {
+	font-family: 'Ubuntu Condensed', sans-serif;
 	font-size: 10px;
 	text-transform: uppercase;
-	color: rgba(0,0,0,0.8);
+	color: rgba(0,0,0,0.4);
 	display: block;
 	white-space: nowrap;
 }
@@ -972,30 +973,34 @@ body {
 	background:rgba(0,0,0,0.6);
 }
 .footerMenu img {
-	height: 15px;
+	height: 23px;
 	width: auto;
 }
+.smallText {
+	font-size: 11px;
+	line-height: 14px;
+}
 .footerMenu i {
-	height: 15px;
-	font-size: 14px;
+	height: 34px;
+	font-size: 20px;
 	line-height: 40px;
 }
 .footerMenu a {
 	color: rgba(0,0,0,0.4);
 }
 .footerMenu div {
-	transform: scale(0.9);
+	/*transform: scale(0.9);*/
 	flex: 1;
 }
 .footerMenu div.main {
-	border-right: 1px solid rgba(0,0,0,0.15);
-	border-left: 1px solid rgba(0,0,0,0.15);
-	padding: 0 5px;
-	margin: 0 5px;
+	/*border-right: 1px solid rgba(0,0,0,0.15);*/
+	/*border-left: 1px solid rgba(0,0,0,0.15);*/
+	padding: 0;
+	margin: 0;
 	transform: scale(1);
 }
 .notifications, .homeFooter {
-	border-right: 1px solid rgba(0,0,0,0.15);
+	/*border-right: 1px solid rgba(0,0,0,0.15);*/
 	position: relative;
 }
 .button small {
@@ -1498,7 +1503,7 @@ body .profileDropzone .dz-preview {
 		width: 90px;
 	}
 	.footerMenu small { 
-		font-size: 9px;
+		font-size: 8px;
 	}
 }
 @media (max-width: 600px) {

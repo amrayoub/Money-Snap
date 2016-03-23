@@ -27,6 +27,9 @@
     <script src="external/angular-sanitize.js"></script>
     <script src="external/firebase.js"></script>
     <script src="external/angularfire.min.js"></script>
+
+    <!-- UBUNTU FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
     
     <!-- ANIMATE CSS -->
     <link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -68,7 +71,8 @@
     <!-- MAIN VIEW -->
     <ui-view></ui-view>
 
-    <p align="center"><small>V 0.1.7</small></p>
+    <p align="center"><small>V 0.1.8</small></p>
+    <br>
 
     <section class="footerMenu" ng-show="firebaseUser">
         <div class="homeFooter">
@@ -87,7 +91,9 @@
             <a href="#/" ng-click="currentPage = 'main'" ng-class="{'active':currentPage == 'main' || !currentPage}"><img src="images/contestsIcon.png"><small>Contests</small></a>
         </div>
         <div class="notifications">
-            <a href="#notifications" ng-click="currentPage = 'notifications'" ng-class="{'active':currentPage == 'notifications'}"><i class="fa fa-bell"></i><small> <b class="notificationAlert" ng-show="unreadNotifications">{{unreadNotifications}}</b> Notifications</small></a>
+            <a href="#notifications" ng-click="currentPage = 'notifications'" ng-class="{'active':currentPage == 'notifications'}"><i class="fa fa-bell"></i>
+                <small> Notifications</small></a>
+                <b class="notificationAlert" ng-show="unreadNotifications">{{unreadNotifications}}</b>
         </div>
         <div class="moreLink">
             <a href="#more" ng-click="currentPage = 'more'" ng-class="{'active':currentPage == 'more'}"><i class="fa fa-bars"></i> <small>More</small></a>
